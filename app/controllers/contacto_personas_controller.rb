@@ -90,7 +90,7 @@ class ContactoPersonasController < ApplicationController
     end
 
     def set_redireccion
-      @redireccion = "/contacto_personas?id=#{get_elemento_id(controller_name, 'Mis ingresos')}" 
+      @redireccion = "/st_bandejas?m=ContactoPersona&e=ingreso" 
     end
 
     # Only allow a list of trusted parameters through.

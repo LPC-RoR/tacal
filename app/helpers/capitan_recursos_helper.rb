@@ -48,7 +48,11 @@ module CapitanRecursosHelper
 	## ------------------------------------------------------- SIDEBAR
 
 	def app_sidebar_controllers
-		['contacto_personas', 'contacto_empresas']
+		[]
+	end
+
+	def app_bandeja_controllers
+		StModelo.all.order(:st_modelo).map {|st_modelo| st_modelo.st_modelo.tableize}
 	end
 
 	## ------------------------------------------------------- TABLA | BTNS
@@ -79,8 +83,8 @@ module CapitanRecursosHelper
 	end
 
 	def app_new_button_conditions(controller)
-		if [].include?(controller)
-			admin?
+		if ['contacto_personas', 'contacto_empresas'].include?(controller)
+			@e == 'st_plus'
 		else
 			true
 		end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_09_025414) do
+ActiveRecord::Schema.define(version: 2021_11_09_140814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -282,10 +282,10 @@ ActiveRecord::Schema.define(version: 2021_11_09_025414) do
     t.string "st_perfil_modelo"
     t.string "rol"
     t.boolean "ingresa_registros"
-    t.integer "app_perfil_id"
+    t.integer "app_nomina_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["app_perfil_id"], name: "index_st_perfil_modelos_on_app_perfil_id"
+    t.index ["app_nomina_id"], name: "index_st_perfil_modelos_on_app_nomina_id"
   end
 
   create_table "usuarios", force: :cascade do |t|

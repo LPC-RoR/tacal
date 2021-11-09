@@ -1,5 +1,5 @@
 class Estados::StModelosController < ApplicationController
-  before_action :set_st_modelo, only: %i[ show edit update destroy ]
+  before_action :set_st_modelo, only: %i[ show edit update destroy asigna ]
   before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
@@ -52,6 +52,13 @@ class Estados::StModelosController < ApplicationController
         format.json { render json: @objeto.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def asigna
+    nomina = params[:class_name].constantize.find(params[:objeto_id])
+    nomina.st_perfil_modelos.create(st_perfil_modelo: @objeto.st_modelo, rol: 'nomina')
+
+    redirect_to nomina
   end
 
   # DELETE /st_modelos/1 or /st_modelos/1.json

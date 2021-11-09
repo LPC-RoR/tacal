@@ -63,14 +63,24 @@ Rails.application.routes.draw do
   end
 
   scope module: 'estados' do
-    resources :st_estados
+    resources :st_estados do
+      match :asigna, via: :get, on: :member
+    end
     resources :st_modelos do 
       resources :st_estados
+      match :asigna, via: :get, on: :member
     end
-    resources :st_perfil_estados
+    resources :st_perfil_estados do
+      match :desasignar, via: :get, on: :member
+      match :cambia_rol, via: :get, on: :member
+    end
     resources :st_perfil_modelos do
       resources :st_perfil_estados
+      match :desasignar, via: :get, on: :member
+      match :cambia_rol, via: :get, on: :member
+      match :cambia_ingreso, via: :get, on: :member
     end
+    resources :st_bandejas
   end
 
   devise_for :usuarios

@@ -19,8 +19,7 @@ module CapitanMenuHelper
 	    ## Menu principal de la aplicación
 	    # [ 'Item del menú', 'link', 'accesso' ]
 	    [
-	        ['',    "/contacto_personas",  'nomina', 'person-square'],
-	        ['',    "/contacto_empresas",  'nomina', 'building']
+	        ['',    "/st_bandejas",       'nomina', 'inboxes']
 #	        ['',    "/st_modelos",         'admin',   'diagram-3']
 	    ]
 

@@ -40,8 +40,10 @@ module CapitanCristianoHelper
 	end
 
 	def cristiano_app(text, origen, destino)
-		if ['nombre_espaniol'].include?(text)
-			'Nombre (Español)'
+		if ['ContactoPersona', 'contacto_personas'].include?(text)
+			'Contacto persona'
+		elsif ['ContactoEmpresa', 'contacto_empresas'].include?(text)
+			'Contacto empresa'
 		else
 			case origen
 			when 'field'

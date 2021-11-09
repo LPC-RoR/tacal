@@ -1,7 +1,7 @@
 class ContactoPersona < ApplicationRecord
 
 	TABLA_FIELDS = [
-		['nombre', 'normal'], 
+		['nombre', 'show'], 
 		['email',  'normal']
 	]
 

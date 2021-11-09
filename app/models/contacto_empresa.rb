@@ -1,7 +1,7 @@
 class ContactoEmpresa < ApplicationRecord
 
 	TABLA_FIELDS = [
-		['razon_social', 'normal']
+		['razon_social', 'show']
 #		['email',  'normal']
 	]
 
