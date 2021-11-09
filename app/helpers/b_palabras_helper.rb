@@ -1,0 +1,2 @@
+module BPalabrasHelper
+end

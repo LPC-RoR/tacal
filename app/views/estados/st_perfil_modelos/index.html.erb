@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>St Perfil Modelos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>St perfil modelo</th>
+      <th>Rol</th>
+      <th>Ingresa registros</th>
+      <th>App perfil</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @st_perfil_modelos.each do |st_perfil_modelo| %>
+      <tr>
+        <td><%= st_perfil_modelo.st_perfil_modelo %></td>
+        <td><%= st_perfil_modelo.rol %></td>
+        <td><%= st_perfil_modelo.ingresa_registros %></td>
+        <td><%= st_perfil_modelo.app_perfil_id %></td>
+        <td><%= link_to 'Show', st_perfil_modelo %></td>
+        <td><%= link_to 'Edit', edit_st_perfil_modelo_path(st_perfil_modelo) %></td>
+        <td><%= link_to 'Destroy', st_perfil_modelo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New St Perfil Modelo', new_st_perfil_modelo_path %>

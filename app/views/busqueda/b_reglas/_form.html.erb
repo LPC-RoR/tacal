@@ -1,0 +1,37 @@
+<%= form_with(model: b_regla, local: true) do |form| %>
+  <% if b_regla.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(b_regla.errors.count, "error") %> prohibited this b_regla from being saved:</h2>
+
+      <ul>
+      <% b_regla.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :idioma %>
+    <%= form.text_field :idioma %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tipo_palabra %>
+    <%= form.text_field :tipo_palabra %>
+  </div>
+
+  <div class="field">
+    <%= form.label :accion %>
+    <%= form.text_field :accion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :b_regla %>
+    <%= form.text_field :b_regla %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

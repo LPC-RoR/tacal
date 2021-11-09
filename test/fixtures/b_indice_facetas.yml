@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  b_clave_faceta_id: 1
+  ref_class: MyString
+  ref_id: 1
+
+two:
+  b_clave_faceta_id: 1
+  ref_class: MyString
+  ref_id: 1

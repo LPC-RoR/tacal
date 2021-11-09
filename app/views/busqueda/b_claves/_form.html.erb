@@ -1,0 +1,22 @@
+<%= form_with(model: b_clave, local: true) do |form| %>
+  <% if b_clave.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(b_clave.errors.count, "error") %> prohibited this b_clave from being saved:</h2>
+
+      <ul>
+      <% b_clave.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :b_clave %>
+    <%= form.text_field :b_clave %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+class StPerfilEstado < ApplicationRecord
+end

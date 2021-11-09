@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Razon social:</strong>
+  <%= @contacto_empresa.razon_social %>
+</p>
+
+<p>
+  <strong>Rut:</strong>
+  <%= @contacto_empresa.rut %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @contacto_empresa.direccion %>
+</p>
+
+<%= link_to 'Edit', edit_contacto_empresa_path(@contacto_empresa) %> |
+<%= link_to 'Back', contacto_empresas_path %>

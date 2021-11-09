@@ -19,9 +19,9 @@ module CapitanMenuHelper
 	    ## Menu principal de la aplicación
 	    # [ 'Item del menú', 'link', 'accesso' ]
 	    [
-#	        ['',               "/vistas/graficos",   'usuario', 'bar-chart-line'],
-#	        ["Colecciones",    "/vistas",            'anonimo', 'newspaper'],
-#	        ["Escritorio",     "/vistas/escritorio", 'usuario', 'window-sidebar']
+	        ['',    "/contacto_personas",  'nomina', 'person-square'],
+	        ['',    "/contacto_empresas",  'nomina', 'building']
+#	        ['',    "/st_modelos",         'admin',   'diagram-3']
 	    ]
 
 	end

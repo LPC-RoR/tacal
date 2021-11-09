@@ -48,8 +48,7 @@ module CapitanRecursosHelper
 	## ------------------------------------------------------- SIDEBAR
 
 	def app_sidebar_controllers
-		[
-		]
+		['contacto_personas', 'contacto_empresas']
 	end
 
 	## ------------------------------------------------------- TABLA | BTNS
@@ -66,12 +65,7 @@ module CapitanRecursosHelper
 		case objeto.class.name
 		when 'Publicacion'
 			if usuario_signed_in?
-				if ActiveRecord::Base.connection.table_exists? 'app_perfiles'
-					activo = AppPerfil.find(session[:perfil_activo]['id'])
-				else
-					activo = Perfil.find(session[:perfil_activo]['id'])
-				end
-				(objeto.carpetas.ids & activo.carpetas.ids).empty? ? 'default' : 'dark'
+				(objeto.carpetas.ids & perfil_activo.carpetas.ids).empty? ? 'default' : 'dark'
 			else
 				'default'
 			end
@@ -86,7 +80,7 @@ module CapitanRecursosHelper
 
 	def app_new_button_conditions(controller)
 		if [].include?(controller)
-			session[:es_administrador]
+			admin?
 		else
 			true
 		end
@@ -94,11 +88,11 @@ module CapitanRecursosHelper
 
 	def app_crud_conditions(objeto, btn)
 		if [].include?(objeto.class.name)
-			session[:es_administrador]
+			admin?
 		else
 			case objeto.class.name
 			when 'Clase'
-				session[:es_administrador]
+				admin?
 			else
 				true
 			end

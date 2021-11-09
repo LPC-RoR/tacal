@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>B palabra:</strong>
+  <%= @b_palabra.b_palabra %>
+</p>
+
+<p>
+  <strong>B clave:</strong>
+  <%= @b_palabra.b_clave_id %>
+</p>
+
+<%= link_to 'Edit', edit_b_palabra_path(@b_palabra) %> |
+<%= link_to 'Back', b_palabras_path %>

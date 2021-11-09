@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  resources :contacto_empresas
+  resources :contacto_personas
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # SCOPE APLICACION
   scope module: 'aplicacion' do
     resources :app_administradores
     resources :app_nominas
     resources :app_perfiles do
+      # recurso SOLO si hay manejo de ESTADOS
+      resources :st_perfil_modelos
       match :desvincular, via: :get, on: :member
     end
     resources :app_observaciones
@@ -20,6 +24,7 @@ Rails.application.routes.draw do
     end
 
     resources :app_imagenes
+    resources :app_contactos
   end
 
   scope module: 'home' do
@@ -46,6 +51,26 @@ Rails.application.routes.draw do
 #      match :estado, via: :get, on: :member
 #      match :respuesta, via: :post, on: :collection
 #    end
+  end
+
+  scope module: 'busqueda' do
+    resources :b_indice_facetas
+    resources :b_indices
+    resources :b_claves
+    resources :b_clave_facetas
+    resources :b_palabras
+    resources :b_reglas
+  end
+
+  scope module: 'estados' do
+    resources :st_estados
+    resources :st_modelos do 
+      resources :st_estados
+    end
+    resources :st_perfil_estados
+    resources :st_perfil_modelos do
+      resources :st_perfil_estados
+    end
   end
 
   devise_for :usuarios

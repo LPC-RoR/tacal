@@ -13,12 +13,11 @@ class Aplicacion::AppRecursosController < ApplicationController
   end
 
   def ayuda
-    carga_sidebar('Ayuda', params[:t])
-#    carga_tutorial(@sb_elementos, @t)
+    carga_sidebar('Ayuda', params[:id])
   end
 
   def administracion
-    carga_sidebar('Administración', params[:t])
+    carga_sidebar('Administración', params[:id])
   end
 
   def procesos
