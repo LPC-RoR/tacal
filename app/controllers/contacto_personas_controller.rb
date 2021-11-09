@@ -1,5 +1,5 @@
 class ContactoPersonasController < ApplicationController
-  before_action :set_contacto_persona, only: %i[ show edit update destroy ]
+  before_action :set_contacto_persona, only: %i[ show edit update destroy cambio_estado]
   before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
@@ -71,6 +71,13 @@ class ContactoPersonasController < ApplicationController
         format.json { render json: @objeto.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def cambio_estado
+    @objeto.estado = params[:st]
+    @objeto.save
+
+    redirect_to "/st_bandejas?m=#{@objeto.class.name}&e=#{@objeto.estado}"
   end
 
   # DELETE /contacto_personas/1 or /contacto_personas/1.json

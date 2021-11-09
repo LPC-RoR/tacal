@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resources :contacto_empresas
-  resources :contacto_personas
+  resources :contacto_empresas do
+    match :cambio_estado, via: :get, on: :member
+  end
+  resources :contacto_personas do
+    match :cambio_estado, via: :get, on: :member
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # SCOPE APLICACION
   scope module: 'aplicacion' do

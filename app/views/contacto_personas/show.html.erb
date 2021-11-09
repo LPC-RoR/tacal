@@ -1,34 +1,15 @@
-<p id="notice"><%= notice %></p>
+<h5><%= render partial: '0p/general/icon_text', locals: {gly: 'person', text: @objeto.nombre, clr: app_color[:app]} %></h5>
 
-<p>
-  <strong>Nombres:</strong>
-  <%= @contacto_persona.nombres %>
-</p>
+<div class='row'>
+  <div class='col-md-6'>
+    <small><i class="bi bi-tag"></i> <b><%= @objeto.estado %></b></small></br>
+    <small><i class="bi bi-credit-card-2-front"> </i><%= @objeto.rut %></small></br>
+    <small><i class="bi bi-telephone"> </i><%= @objeto.telefono %></small></br>
+    <small><i class="bi bi-envelope"> </i><%= @objeto.email %></small></br>
 
-<p>
-  <strong>Apellido paterno:</strong>
-  <%= @contacto_persona.apellido_paterno %>
-</p>
-
-<p>
-  <strong>Apellido materno:</strong>
-  <%= @contacto_persona.apellido_materno %>
-</p>
-
-<p>
-  <strong>Rut:</strong>
-  <%= @contacto_persona.rut %>
-</p>
-
-<p>
-  <strong>Telefono:</strong>
-  <%= @contacto_persona.telefono %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @contacto_persona.email %>
-</p>
-
-<%= link_to 'Edit', edit_contacto_persona_path(@contacto_persona) %> |
-<%= link_to 'Back', contacto_personas_path %>
+    <i class="bi bi-tag">
+    <%= render partial: 'estados/st_bandejas/partials/change_state', locals: {objeto: @objeto} %>
+  </div>
+  <div class='col-md-6'>
+  </div>
+</div>
