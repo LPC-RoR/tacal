@@ -5,7 +5,6 @@ module CapitanRecursosHelper
 		{
 			nombre: 'Tacal',
 			home_link: 'http://www.appname.cl',
-			libre_registro: true,
 			logo_navbar: 'logo_navbar.png'
 		}
 	end
@@ -45,7 +44,7 @@ module CapitanRecursosHelper
 		}
 	end
 
-	## ------------------------------------------------------- SIDEBAR
+	## ------------------------------------------------------- LAYOUTS CONTROLLERS
 
 	def app_sidebar_controllers
 		[]
@@ -101,10 +100,6 @@ module CapitanRecursosHelper
 				true
 			end
 		end
-	end
-
-	def estados_conditions(objeto)
-		false
 	end
 
 	def x_conditions(objeto, btn)

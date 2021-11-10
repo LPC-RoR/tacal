@@ -277,11 +277,6 @@ module ApplicationHelper
 
 	def status?(objeto)
 		partial?(controller, 'status')
-#		if scope_controller(objeto.class.name.tableize).blank?
-#			File.exist?("app/views/#{objeto.class.name.tableize}/_status.html.erb")
-#		else
-#			File.exist?("app/views/#{scope_controller(objeto.class.name.tableize)}/#{objeto.class.name.tableize}/_status.html.erb")
-#		end
 	end
 
 	## ------------------------------------------------------- GENERAL

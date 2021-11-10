@@ -17,7 +17,7 @@ module CapitanMenuHelper
 
 	def menu
 	    ## Menu principal de la aplicación
-	    # [ 'Item del menú', 'link', 'accesso' ]
+	    # [ 'Item del menú', 'link', 'accesso', 'gly' ]
 	    [
 	        ['',    "/st_bandejas",       'nomina', 'inboxes']
 #	        ['',    "/st_modelos",         'admin',   'diagram-3']

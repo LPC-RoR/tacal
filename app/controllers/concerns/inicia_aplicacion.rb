@@ -158,6 +158,10 @@ module IniciaAplicacion
 
 	end
 
+	def libre_registro
+		false
+	end
+
 	def inicia_app
 	end
 
