@@ -74,6 +74,8 @@ class ContactoPersonasController < ApplicationController
   end
 
   def cambio_estado
+    StLog.create(perfil_id: current_usuario.id, class_name: @objeto.class.name, objeto_id: @objeto.id, e_origen: @objeto.estado, e_destino: params[:st])
+
     @objeto.estado = params[:st]
     @objeto.save
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_09_140814) do
+ActiveRecord::Schema.define(version: 2021_11_10_132105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -261,6 +261,20 @@ ActiveRecord::Schema.define(version: 2021_11_09_140814) do
     t.index ["orden"], name: "index_st_estados_on_orden"
     t.index ["st_estado"], name: "index_st_estados_on_st_estado"
     t.index ["st_modelo_id"], name: "index_st_estados_on_st_modelo_id"
+  end
+
+  create_table "st_logs", force: :cascade do |t|
+    t.integer "perfil_id"
+    t.string "class_name"
+    t.integer "objeto_id"
+    t.string "e_origen"
+    t.string "e_destino"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["e_destino"], name: "index_st_logs_on_e_destino"
+    t.index ["e_origen"], name: "index_st_logs_on_e_origen"
+    t.index ["objeto_id"], name: "index_st_logs_on_objeto_id"
+    t.index ["perfil_id"], name: "index_st_logs_on_perfil_id"
   end
 
   create_table "st_modelos", force: :cascade do |t|

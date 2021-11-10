@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :contacto_empresas do
+    resources :app_contactos
     match :cambio_estado, via: :get, on: :member
   end
   resources :contacto_personas do
@@ -85,6 +86,7 @@ Rails.application.routes.draw do
       match :cambia_ingreso, via: :get, on: :member
     end
     resources :st_bandejas
+    resources :st_logs
   end
 
   devise_for :usuarios

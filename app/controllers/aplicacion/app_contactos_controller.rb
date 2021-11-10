@@ -1,4 +1,4 @@
-class AppContactosController < ApplicationController
+class Aplicacion::AppContactosController < ApplicationController
   before_action :set_app_contacto, only: %i[ show edit update destroy ]
 
   # GET /app_contactos or /app_contactos.json
@@ -12,7 +12,7 @@ class AppContactosController < ApplicationController
 
   # GET /app_contactos/new
   def new
-    @objeto = AppContacto.new
+    @objeto = AppContacto.new(owner_class: params[:class_name], owner_id: params[:objeto_id])
   end
 
   # GET /app_contactos/1/edit
@@ -25,7 +25,8 @@ class AppContactosController < ApplicationController
 
     respond_to do |format|
       if @objeto.save
-        format.html { redirect_to @objeto, notice: "App contacto was successfully created." }
+        set_redireccion
+        format.html { redirect_to @redireccion, notice: "App contacto was successfully created." }
         format.json { render :show, status: :created, location: @objeto }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +39,8 @@ class AppContactosController < ApplicationController
   def update
     respond_to do |format|
       if @objeto.update(app_contacto_params)
-        format.html { redirect_to @objeto, notice: "App contacto was successfully updated." }
+        set_redireccion
+        format.html { redirect_to @redireccion, notice: "App contacto was successfully updated." }
         format.json { render :show, status: :ok, location: @objeto }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -49,9 +51,10 @@ class AppContactosController < ApplicationController
 
   # DELETE /app_contactos/1 or /app_contactos/1.json
   def destroy
+    set_redireccion
     @objeto.destroy
     respond_to do |format|
-      format.html { redirect_to app_contactos_url, notice: "App contacto was successfully destroyed." }
+      format.html { redirect_to @redireccion, notice: "App contacto was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -60,6 +63,10 @@ class AppContactosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_app_contacto
       @objeto = AppContacto.find(params[:id])
+    end
+
+    def set_redireccion
+      @redireccion = @objeto.owner_class.constantize.find(@objeto.owner_id)
     end
 
     # Only allow a list of trusted parameters through.

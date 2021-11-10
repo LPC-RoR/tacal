@@ -29,6 +29,8 @@ class ContactoEmpresasController < ApplicationController
 
   # GET /contacto_empresas/1 or /contacto_empresas/1.json
   def show
+    @coleccion = {}
+    @coleccion['app_contactos'] = @objeto.contactos
   end
 
   # GET /contacto_empresas/new
@@ -71,8 +73,11 @@ class ContactoEmpresasController < ApplicationController
   end
 
   def cambio_estado
+    StLog.create(perfil_id: current_usuario.id, class_name: @objeto.class.name, objeto_id: @objeto.id, e_origen: @objeto.estado, e_destino: params[:st])
+
     @objeto.estado = params[:st]
     @objeto.save
+
 
     redirect_to "/st_bandejas?m=#{@objeto.class.name}&e=#{@objeto.estado}"
   end

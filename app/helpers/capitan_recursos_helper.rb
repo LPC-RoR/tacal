@@ -84,7 +84,7 @@ module CapitanRecursosHelper
 
 	def app_new_button_conditions(controller)
 		if ['contacto_personas', 'contacto_empresas'].include?(controller)
-			@e == 'st_plus'
+			@e == 'ingreso'
 		else
 			true
 		end
