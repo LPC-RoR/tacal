@@ -18,8 +18,7 @@ class Estados::StBandejasController < ApplicationController
 
     # Despliegue
     @coleccion = {}
-    estado = (@e == 'st_plus' ? 'ingreso' : @e)
-    @coleccion[@m.tableize] = @m.constantize.where(estado: estado).order(:created_at)
+    @coleccion[@m.tableize] = @m.constantize.where(estado: @e).order(:created_at)
 
     @nomina = AppNomina.find_by(email: perfil_activo.email) unless seguridad_desde('admin')
 
