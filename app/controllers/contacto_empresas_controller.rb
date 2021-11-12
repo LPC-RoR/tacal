@@ -1,6 +1,6 @@
 class ContactoEmpresasController < ApplicationController
   before_action :set_contacto_empresa, only: %i[ show edit update destroy cambio_estado ]
-  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
+#  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
