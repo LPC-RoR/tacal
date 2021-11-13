@@ -4,4 +4,5 @@ class StModelo < ApplicationRecord
 	]
 
 	has_many :st_estados
+
 end
