@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Medicamento:</strong>
+  <%= @medicamento.medicamento %>
+</p>
+
+<p>
+  <strong>Dosis:</strong>
+  <%= @medicamento.dosis %>
+</p>
+
+<p>
+  <strong>Autonomia administracion:</strong>
+  <%= @medicamento.autonomia_administracion %>
+</p>
+
+<p>
+  <strong>Adherencia tratamiento:</strong>
+  <%= @medicamento.adherencia_tratamiento %>
+</p>
+
+<p>
+  <strong>Pcd id.integer:</strong>
+  <%= @medicamento.pcd_id.integer %>
+</p>
+
+<%= link_to 'Edit', edit_medicamento_path(@medicamento) %> |
+<%= link_to 'Back', medicamentos_path %>

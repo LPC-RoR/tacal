@@ -20,6 +20,10 @@ class Aplicacion::AppRecursosController < ApplicationController
     carga_sidebar('Administración', params[:id])
   end
 
+  def tablas
+    carga_sidebar('Tablas', params[:id])
+  end
+
   def procesos
     redirect_to root_path
   end

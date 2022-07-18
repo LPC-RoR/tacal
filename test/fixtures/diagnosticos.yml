@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  diagnostico: MyString
+  secuela: MyString
+  hospitalizacion: false
+  ultima_crisis: 2022-07-13
+
+two:
+  diagnostico: MyString
+  secuela: MyString
+  hospitalizacion: false
+  ultima_crisis: 2022-07-13

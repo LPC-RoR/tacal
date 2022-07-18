@@ -1,0 +1,42 @@
+<%= form_with(model: medicamento, local: true) do |form| %>
+  <% if medicamento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(medicamento.errors.count, "error") %> prohibited this medicamento from being saved:</h2>
+
+      <ul>
+      <% medicamento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :medicamento %>
+    <%= form.text_field :medicamento %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dosis %>
+    <%= form.text_field :dosis %>
+  </div>
+
+  <div class="field">
+    <%= form.label :autonomia_administracion %>
+    <%= form.check_box :autonomia_administracion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :adherencia_tratamiento %>
+    <%= form.check_box :adherencia_tratamiento %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pcd_id.integer %>
+    <%= form.text_field :pcd_id.integer %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  resources :antecedente_formaciones
+  resources :cursos
+  resources :medicamentos
+  resources :dispositivo_atenciones
+  resources :diagnosticos
+  resources :fichas
+  resources :medio_contactos
+  resources :etnias
+  resources :regiones
+  resources :nivel_educacionales
+  resources :nacionalidades
+  resources :pcds
   resources :contacto_empresas do
     resources :app_contactos
     match :cambio_estado, via: :get, on: :member
@@ -24,6 +36,7 @@ Rails.application.routes.draw do
         match :ayuda, via: :get
         match :home, via: :get
         match :administracion, via: :get
+        match :tablas, via: :get
         match :procesos, via: :get
       end
     end

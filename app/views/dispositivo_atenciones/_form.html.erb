@@ -1,0 +1,47 @@
+<%= form_with(model: dispositivo_atencion, local: true) do |form| %>
+  <% if dispositivo_atencion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dispositivo_atencion.errors.count, "error") %> prohibited this dispositivo_atencion from being saved:</h2>
+
+      <ul>
+      <% dispositivo_atencion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :dispositivo_atencion %>
+    <%= form.text_field :dispositivo_atencion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lugar_atencion %>
+    <%= form.text_field :lugar_atencion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :profesional %>
+    <%= form.text_field :profesional %>
+  </div>
+
+  <div class="field">
+    <%= form.label :frecuencia_control %>
+    <%= form.text_field :frecuencia_control %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tratamiento %>
+    <%= form.check_box :tratamiento %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pcd_id %>
+    <%= form.number_field :pcd_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

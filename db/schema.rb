@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_10_132105) do
+ActiveRecord::Schema.define(version: 2022_07_18_025632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "antecedente_formaciones", force: :cascade do |t|
+    t.string "periodo"
+    t.string "titulo_grado"
+    t.string "institucion"
+    t.integer "pcd_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pcd_id"], name: "index_antecedente_formaciones_on_pcd_id"
+  end
 
   create_table "app_administradores", force: :cascade do |t|
     t.string "administrador"
@@ -183,6 +193,103 @@ ActiveRecord::Schema.define(version: 2021_11_10_132105) do
     t.index ["estado"], name: "index_contacto_personas_on_estado"
   end
 
+  create_table "cursos", force: :cascade do |t|
+    t.string "periodo"
+    t.string "titulo_grado"
+    t.string "institucion"
+    t.integer "pcd_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pcd_id"], name: "index_cursos_on_pcd_id"
+  end
+
+  create_table "diagnosticos", force: :cascade do |t|
+    t.string "diagnostico"
+    t.string "secuela"
+    t.boolean "hospitalizacion"
+    t.date "ultima_crisis"
+    t.integer "pcd_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["diagnostico"], name: "index_diagnosticos_on_diagnostico"
+    t.index ["pcd_id"], name: "index_diagnosticos_on_pcd_id"
+  end
+
+  create_table "dispositivo_atenciones", force: :cascade do |t|
+    t.string "dispositivo_atencion"
+    t.string "lugar_atencion"
+    t.string "profesional"
+    t.string "frecuencia_control"
+    t.boolean "tratamiento"
+    t.integer "pcd_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pcd_id"], name: "index_dispositivo_atenciones_on_pcd_id"
+  end
+
+  create_table "etnias", force: :cascade do |t|
+    t.string "etnia"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["etnia"], name: "index_etnias_on_etnia"
+  end
+
+  create_table "fichas", force: :cascade do |t|
+    t.date "fecha_entrevista"
+    t.string "modalidad_entrevista"
+    t.integer "evaluador_id"
+    t.string "puntualidad"
+    t.string "atento"
+    t.string "interesado"
+    t.string "motivado"
+    t.string "acompanates"
+    t.string "aseado"
+    t.string "vestimenta_acorde"
+    t.string "comunicacion_autonoma"
+    t.boolean "oral"
+    t.boolean "gestual"
+    t.boolean "escrita"
+    t.string "con_quien_vives"
+    t.string "quien_vives_otro"
+    t.string "municipalidad"
+    t.string "agrupacion"
+    t.string "familia"
+    t.string "comunidad_otros"
+    t.string "antecedentes_penales"
+    t.string "certificado_antecedentes"
+    t.string "antecedentes_consumo"
+    t.string "consumo_otros"
+    t.string "otros_diagnosticos"
+    t.string "ayuda_tecnica"
+    t.string "cual_ayuda"
+    t.string "atencion"
+    t.string "vestuario"
+    t.string "aseo_personal"
+    t.string "alimentacion"
+    t.string "control_esfinteres"
+    t.string "manejo_dinero"
+    t.string "movilidad"
+    t.string "uso_celular"
+    t.string "manejo_computacional"
+    t.string "otros"
+    t.string "idiomas"
+    t.string "documentos_legales_vigentes"
+    t.string "visa_trabajo_vigente"
+    t.text "objetivo"
+    t.string "experiencia_laboral"
+    t.string "laboral_formal"
+    t.string "laboral_informal"
+    t.string "otro_formal"
+    t.string "otro_informal"
+    t.string "profesion_titulo_tecnico"
+    t.text "intereses_laborales"
+    t.integer "pcd_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["evaluador_id"], name: "index_fichas_on_evaluador_id"
+    t.index ["pcd_id"], name: "index_fichas_on_pcd_id"
+  end
+
   create_table "h_imagenes", force: :cascade do |t|
     t.string "nombre"
     t.datetime "created_at", null: false
@@ -223,6 +330,114 @@ ActiveRecord::Schema.define(version: 2021_11_10_132105) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["clave"], name: "index_hlp_tutoriales_on_clave"
+  end
+
+  create_table "medicamentos", force: :cascade do |t|
+    t.string "medicamento"
+    t.string "dosis"
+    t.boolean "autonomia_administracion"
+    t.boolean "adherencia_tratamiento"
+    t.integer "pcd_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["medicamento"], name: "index_medicamentos_on_medicamento"
+    t.index ["pcd_id"], name: "index_medicamentos_on_pcd_id"
+  end
+
+  create_table "medio_contactos", force: :cascade do |t|
+    t.string "medio_contacto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["medio_contacto"], name: "index_medio_contactos_on_medio_contacto"
+  end
+
+  create_table "nacionalidades", force: :cascade do |t|
+    t.string "nacionalidad"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nacionalidad"], name: "index_nacionalidades_on_nacionalidad"
+  end
+
+  create_table "nivel_educacionales", force: :cascade do |t|
+    t.string "nivel_educacional"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nivel_educacional"], name: "index_nivel_educacionales_on_nivel_educacional"
+  end
+
+  create_table "pcds", force: :cascade do |t|
+    t.string "rut"
+    t.string "apellido_paterno"
+    t.string "apellido_materno"
+    t.string "nombres"
+    t.date "fecha_nacimiento"
+    t.string "genero"
+    t.string "nacionalidad"
+    t.string "nivel_educacional"
+    t.string "profesion_oficio"
+    t.string "direccion"
+    t.string "comuna"
+    t.string "ciudad"
+    t.string "region"
+    t.string "telefono_personal"
+    t.string "telefono_casa"
+    t.string "correo_electronico"
+    t.string "acreditacion_discapacidad"
+    t.string "estado_civil"
+    t.integer "numero_hijos"
+    t.string "responsabilidad_parental"
+    t.string "situacion_social"
+    t.boolean "interdicto"
+    t.string "etnia"
+    t.boolean "cuenta_rut"
+    t.string "condicionado"
+    t.boolean "conexion_internet"
+    t.string "proveedor_internet"
+    t.string "medio_contacto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "estado"
+    t.string "educacion_completa"
+    t.string "facebook"
+    t.string "instagram"
+    t.boolean "fisica"
+    t.boolean "sensorial_auditiva"
+    t.boolean "sensorial_visual"
+    t.boolean "psiquica"
+    t.boolean "intelectual"
+    t.string "experiencia_laboral"
+    t.boolean "ope_linea_productiva"
+    t.boolean "ope_bodega"
+    t.boolean "ope_aseo"
+    t.boolean "ope_logistica"
+    t.boolean "ope_pioneta"
+    t.boolean "ope_grua_horquilla"
+    t.string "otro_operario"
+    t.boolean "adm_rrhh"
+    t.boolean "adm_contabilidad"
+    t.boolean "adm_ventas"
+    t.boolean "adm_finanzas"
+    t.boolean "adm_general"
+    t.string "otro_administrativo"
+    t.string "interes_laboral_1"
+    t.string "interes_laboral_2"
+    t.string "interes_laboral_3"
+    t.string "nombre_referencia"
+    t.string "empresa_referencia"
+    t.string "telefono_referencia"
+    t.string "email_referencia"
+    t.string "resultado"
+    t.string "destino"
+    t.index ["estado"], name: "index_pcds_on_estado"
+    t.index ["resultado"], name: "index_pcds_on_resultado"
+    t.index ["rut"], name: "index_pcds_on_rut"
+  end
+
+  create_table "regiones", force: :cascade do |t|
+    t.string "region"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["region"], name: "index_regiones_on_region"
   end
 
   create_table "sb_elementos", force: :cascade do |t|

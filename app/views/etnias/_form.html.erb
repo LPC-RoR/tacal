@@ -1,0 +1,22 @@
+<%= form_with(model: etnia, local: true) do |form| %>
+  <% if etnia.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(etnia.errors.count, "error") %> prohibited this etnia from being saved:</h2>
+
+      <ul>
+      <% etnia.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :etnia %>
+    <%= form.text_field :etnia %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

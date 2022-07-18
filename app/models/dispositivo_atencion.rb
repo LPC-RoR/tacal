@@ -1,0 +1,2 @@
+class DispositivoAtencion < ApplicationRecord
+end

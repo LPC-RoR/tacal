@@ -1,0 +1,61 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rut: MyString
+  apellido_paterno: MyString
+  apellido_materno: MyString
+  nombres: MyString
+  fecha_nacimiento: 2022-06-06
+  genero: MyString
+  nacionalidad: MyString
+  nivel_educacional: MyString
+  profesion_oficio: MyString
+  direccion: MyString
+  comuna: MyString
+  ciudad: MyString
+  region: MyString
+  telefono_personal: MyString
+  telefono_casa: MyString
+  correo_electronico: MyString
+  acreditacion_discapacidad: MyString
+  estado_civil: MyString
+  numero_hijos: 1
+  responsabilidad_parental: MyString
+  situacion_social: MyString
+  interdicto: false
+  etnia: MyString
+  cuenta_rut: false
+  condicionado: MyString
+  conexion_internet: false
+  proveedor_internet: MyString
+  medio_contacto: MyString
+
+two:
+  rut: MyString
+  apellido_paterno: MyString
+  apellido_materno: MyString
+  nombres: MyString
+  fecha_nacimiento: 2022-06-06
+  genero: MyString
+  nacionalidad: MyString
+  nivel_educacional: MyString
+  profesion_oficio: MyString
+  direccion: MyString
+  comuna: MyString
+  ciudad: MyString
+  region: MyString
+  telefono_personal: MyString
+  telefono_casa: MyString
+  correo_electronico: MyString
+  acreditacion_discapacidad: MyString
+  estado_civil: MyString
+  numero_hijos: 1
+  responsabilidad_parental: MyString
+  situacion_social: MyString
+  interdicto: false
+  etnia: MyString
+  cuenta_rut: false
+  condicionado: MyString
+  conexion_internet: false
+  proveedor_internet: MyString
+  medio_contacto: MyString

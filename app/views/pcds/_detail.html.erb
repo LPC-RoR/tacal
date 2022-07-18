@@ -1,0 +1,235 @@
+<div class='row'>
+	<div class='col-md-3'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'RUT', v: true } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :rut } %>
+	</div>
+	<div class='col-md-9'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Nombres', v: true } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :nombres } %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Apellido Paterno', v: true } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :apellido_paterno } %>
+	</div>
+	<div class='col-md-6'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Apellido Materno', v: true } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :apellido_materno } %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Dirección', v: true } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :direccion } %>
+	</div>
+	<div class='col-md-6'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Comuna', v: true } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :comuna } %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Ciudad', v: true } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :ciudad } %>
+	</div>
+	<div class='col-md-6'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Región', v: true } %>
+		<%= render partial: '0p/form_fields/select', locals: { form: form, token: :region, sel_list: Region.all.map {|reg| reg.region}, label: 'Región' } %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-4'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Teléfono Personal', v: true } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :telefono_personal } %>
+	</div>
+	<div class='col-md-4'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Teléfono Casa', v: true } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :telefono_casa } %>
+	</div>
+	<div class='col-md-4'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Correo Electrónico', v: true } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :correo_electronico } %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Facebook', v: true } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :facebook } %>
+	</div>
+	<div class='col-md-6'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Instagram', v: true } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :instagram } %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-4'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Fecha de Nacimiento', v: true } %>
+		<%= render partial: '0p/form_fields/date', locals: { form: form, token: :fecha_nacimiento } %>
+	</div>
+	<div class='col-md-4'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Género', v: true } %>
+		<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :genero, radio_list: ['Femenino', 'Masculino'] } %>
+</div>
+	<div class='col-md-4'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Nacionalidad', v: true } %>
+		<%= render partial: '0p/form_fields/select', locals: { form: form, token: :nacionalidad, sel_list: Nacionalidad.all.map {|nac| nac.nacionalidad}, label: 'Nacionalidad' } %>
+	</div>
+</div>
+
+<hr>
+
+<div class='row'>
+	<div class='col-md-4'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Nivel Educacional', v: true } %>
+		<%= render partial: '0p/form_fields/select', locals: { form: form, token: :nivel_educacional, sel_list: NivelEducacional.all.map {|ned| ned.nivel_educacional}, label: 'Nivel Educacional' } %>
+	</div>
+	<div class='col-md-4'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Completa/Incompleta', v: true } %>
+		<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :educacion_completa, radio_list: ['Completa', 'Incompleta'] } %>
+	</div>
+	<div class='col-md-4'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Profesión/Oficio', v: true } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :profesion_oficio } %>
+	</div>
+</div>
+
+<hr>
+
+<div class='row'>
+	<div class='col-md-4'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Discapacidades', v: true } %></br>
+		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :fisica, label: 'Física' } %></br>
+		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :sensorial_auditiva, label: 'Sensorial-Auditiva' } %></br>
+		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :sensorial_visual, label: 'Sensorial-Visual' } %></br>
+		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :psiquica, label: 'Psíquica' } %></br>
+		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :intelectual, label: 'Intelectual' } %>
+	</div>
+	<div class='col-md-4'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Acreditación Discapacidad', v: true } %>
+		<%= render partial: '0p/form_fields/select', locals: { form: form, token: :acreditacion_discapacidad, sel_list: Pcd::ACREDITACION_DISCAPACIDAD, label: 'Acreditación Discapacidad' } %>
+		
+		</br>
+	
+		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :interdicto, label: 'Interdicto' } %>
+		</br>
+
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Estado Civil', v: true } %>
+		<%= render partial: '0p/form_fields/select', locals: { form: form, token: :estado_civil, sel_list: Pcd::ESTADO_CIVIL, label: 'Estado Civil' } %>
+
+		</br>
+
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Número de Hijos', v: true } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :numero_hijos } %>
+	</div>
+	<div class='col-md-4'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Etnia', v: true } %>
+		<%= render partial: '0p/form_fields/select', locals: { form: form, token: :etnia, sel_list: Etnia.all.map {|et| et.etnia}, label: 'Etnia' } %>
+
+		</br>
+
+		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :cuenta_rut, label: 'Cuenta RUT' } %></br>
+
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Medio de Contacto', v: true } %>
+		<%= render partial: '0p/form_fields/select', locals: { form: form, token: :medio_contacto, sel_list: MedioContacto.all.map {|mc| mc.medio_contacto}, label: 'Medio de Contacto' } %>
+	</div>
+</div>
+
+<hr>
+<h5>Antecedentes Laborales</h5>
+
+<div class='row'>
+	<div class='col-md-4'>
+		<%= render partial: '0p/form_fields/select', locals: { form: form, token: :experiencia_laboral, sel_list: Pcd::EXPERIENCIAS_LABORALES, label: 'Experiencia Laboral' } %>
+	</div>
+	<div class='col-md-4'>
+		<h6>Operario</h6>
+		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :ope_linea_productiva, label: 'Línea Productiva' } %>
+		</br>
+		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :ope_bodega, label: 'Bodega' } %>
+		</br>
+		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :ope_aseo, label: 'Aseo' } %>
+		</br>
+		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :ope_logistica, label: 'Logística' } %>
+		</br>
+		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :ope_pioneta, label: 'Pioneta' } %>
+		</br>
+		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :ope_grua_horquilla, label: 'Grua Horquilla' } %>
+		</br>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Otro Operario', v: false } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :otro_operario } %>
+
+	</div>
+	<div class='col-md-4'>
+		<h6>Administrativo</h6>
+		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :adm_rrhh, label: 'RRHH' } %>
+		</br>
+		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :adm_contabilidad, label: 'Contabilidad' } %>
+		</br>
+		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :adm_ventas, label: 'Ventas' } %>
+		</br>
+		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :adm_finanzas, label: 'Finanzas' } %>
+		</br>
+		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :adm_general, label: 'General' } %>
+		</br>
+
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Otro Administrativo', v: false } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :otro_administrativo } %>
+
+	</div>
+</div>
+
+<hr>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<h5>Intereses Laborales</h5>
+
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Interes Laboral 1', v: false } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :interes_laboral_1 } %>
+
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Interes Laboral 2', v: false } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :interes_laboral_2 } %>
+
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Interes Laboral 3', v: false } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :intreres_laboral_3 } %>
+	</div>
+	<div class='col-md-6'>
+		<h5>Referencia Laboral</h5>
+
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Nombre', v: false } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :nombre_referencia } %>
+
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Empresa', v: false } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :empresa_referencia } %>
+
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Teléfono', v: false } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :telefono_referencia } %>
+
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Email', v: false } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :email_referencia } %>
+	</div>
+</div>
+
+<hr>
+<h5>Resultado</h5>
+<div class='row'>
+	<div class='col-md-6'>
+		<h6>Resultado</h6>
+
+		<%= render partial: '0p/form_fields/select', locals: { form: form, token: :resultado, sel_list: Pcd::RESULTADOS, label: 'Resultado' } %>
+	</div>
+	<div class='col-md-6'>
+		<h6>Destino</h6>
+
+		<%= render partial: '0p/form_fields/select', locals: { form: form, token: :destino, sel_list: Pcd::DESTINOS, label: 'Destino' } %>
+	</div>
+</div>
+
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :estado, label: nil, v: true } %>

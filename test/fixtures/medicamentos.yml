@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  medicamento: MyString
+  dosis: MyString
+  autonomia_administracion: false
+  adherencia_tratamiento: false
+  pcd_id.integer: MyString
+
+two:
+  medicamento: MyString
+  dosis: MyString
+  autonomia_administracion: false
+  adherencia_tratamiento: false
+  pcd_id.integer: MyString

@@ -1,0 +1,2 @@
+module DispositivoAtencionesHelper
+end

@@ -1,0 +1,12 @@
+<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Diagnóstico', v: true } %>
+<%= render partial: '0p/form_fields/text', locals: { form: form, token: :diagnostico } %>
+
+<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Secuela', v: false } %>
+<%= render partial: '0p/form_fields/text', locals: { form: form, token: :secuela } %>
+
+<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :hospitalizacion, label: 'Hospitalización' } %></br>
+
+<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Fecha Última Crisis', v: false } %>
+<%= render partial: '0p/form_fields/date', locals: { form: form, token: :ultima_crisis } %>
+
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :pcd_id, label: nil, v: true } %>

@@ -1,0 +1,10 @@
+<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Período', v: true } %>
+<%= render partial: '0p/form_fields/text', locals: { form: form, token: :periodo } %>
+
+<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Título/Grado', v: true } %>
+<%= render partial: '0p/form_fields/text', locals: { form: form, token: :titulo_grado } %>
+
+<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Institución', v: true } %>
+<%= render partial: '0p/form_fields/text', locals: { form: form, token: :institucion } %>
+
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :pcd_id, label: nil, v: true } %>

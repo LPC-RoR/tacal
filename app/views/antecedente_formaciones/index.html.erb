@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Antecedente Formaciones</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Periodo</th>
+      <th>Titulo grado</th>
+      <th>Institucion</th>
+      <th>Pcd</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @antecedente_formaciones.each do |antecedente_formacion| %>
+      <tr>
+        <td><%= antecedente_formacion.periodo %></td>
+        <td><%= antecedente_formacion.titulo_grado %></td>
+        <td><%= antecedente_formacion.institucion %></td>
+        <td><%= antecedente_formacion.pcd_id %></td>
+        <td><%= link_to 'Show', antecedente_formacion %></td>
+        <td><%= link_to 'Edit', edit_antecedente_formacion_path(antecedente_formacion) %></td>
+        <td><%= link_to 'Destroy', antecedente_formacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Antecedente Formacion', new_antecedente_formacion_path %>

@@ -1,0 +1,97 @@
+<h3><%= @objeto.rut %></h3>
+<h3><%= @objeto.nombre %></h3>
+
+<small><b>Dirección</b></small>
+<h5><%= @objeto.direccion_completa %></h3>
+
+<hr>
+
+<div class='row'>
+  <div class='col-md-3'>
+    <small><b>Fecha de Nacimiento</b></small>
+    <h6><%= @objeto.fecha_nacimiento %></h6>
+    <small><b>Género</b></small>
+    <h6><%= @objeto.genero %></h6>
+    <small><b>Nacionalidad</b></small>
+    <h6><%= @objeto.nacionalidad %></h6>
+    <small><b>Etnia</b></small>
+    <h6><%= @objeto.etnia %></h6>
+    <small><b>Estado Civil</b></small>
+    <h6><%= @objeto.estado_civil %></h6>
+    <small><b>Número de hijos</b></small>
+    <h6><%= @objeto.numero_hijos %></h6>
+  </div>
+  <div class='col-md-3'>
+    <small><b>Medio de Contacto</b></small>
+    <h6><%= @objeto.medio_contacto %></h6>
+    <small><b>Teléfono Personal</b></small>
+    <h6><%= @objeto.telefono_personal %></h6>
+    <small><b>Teléfono Casa</b></small>
+    <h6><%= @objeto.telefono_casa %></h6>
+    <small><b>Correo Electrónico</b></small>
+    <h6><%= @objeto.correo_electronico %></h6>
+    <small><b>Facebook</b></small></br>
+    <% if @objeto.facebook.blank? %>
+      <h6>Sin Información</h6></br>
+    <% else %>
+      <%= link_to @objeto.facebook, @objeto.facebook %></br>
+    <% end %>
+    <small><b>Instagram</b></small></br>
+    <% if @objeto.instagram.blank? %>
+      <h6>Sin Información</h6></br>
+    <% else %>
+      <%= link_to @objeto.instagram, @objeto.instagram %></br>
+    <% end %>
+  </div>
+  <div class='col-md-3'>
+    <small><b>Nivel Educacional</b></small>
+    <h6><%= @objeto.educacion %></h6>
+    <small><b>Discapacidades</b></small>
+    <h6><%= 'Física' if @objeto.fisica %></h6>
+    <h6><%= 'Sensorial-Auditiva' if @objeto.sensorial_auditiva %></h6>
+    <h6><%= 'Sensorial-Visual' if @objeto.sensorial_visual %></h6>
+    <h6><%= 'Psiquica' if @objeto.psiquica %></h6>
+    <h6><%= 'Intelectual' if @objeto.intelectual %></h6>
+    <small><b>Acreditación de Discapacidad</b></small>
+    <h6><%= @objeto.acreditacion_discapacidad %></h6>
+    <small><b>Interdicto</b></small>
+    <h6><%= (@objeto.interdicto ? 'Sí' : 'No') %></h6>
+    <small><b>Cuenta RUT</b></small>
+    <h6><%= @objeto.cuenta_rut ? 'Sí' : 'No' %></h6>
+  </div>
+  <div class='col-md-3'>
+  </div>
+</div>
+
+<hr>
+<h5>Ficha</h5>
+
+<% if @objeto.ficha.present? %>
+  <i class="bi bi-clipboard"></i>
+  <%= link_to 'ver ficha', @objeto.ficha %>
+<% else %>
+  <i class="bi bi-clipboard-plus"></i>
+  <%= link_to 'crear ficha', "/fichas/new?pcd_id=#{@objeto.id}" %>
+<% end %>
+
+<hr>
+
+<h5>Recursos de la Ficha</h5>
+
+<div class='row'>
+  <div class='col-md-4'>
+    <h6>Antecedentes de Salud</h6>
+    <%= render partial: '0p/tabla/solo_tabla', locals: {c: 'diagnosticos', a: 'index'} %>
+    <%= render partial: '0p/tabla/ext_btn_nuevo', locals: {c: 'diagnosticos', o: @objeto, gly: 'plus-circle'} %>
+  </div>
+  <div class='col-md-4'>
+    <h6>Medicamentos</h6>
+    <%= render partial: '0p/tabla/solo_tabla', locals: {c: 'medicamentos', a: 'index'} %>
+    <%= render partial: '0p/tabla/ext_btn_nuevo', locals: {c: 'medicamentos', o: @objeto, gly: 'plus-circle'} %>
+  </div>
+  <div class='col-md-4'>
+    <h6>Antecedentes Formación</h6>
+    <%= render partial: '0p/tabla/solo_tabla', locals: {c: 'antecedente_formaciones', a: 'index'} %>
+    <%= render partial: '0p/tabla/ext_btn_nuevo', locals: {c: 'antecedente_formaciones', o: @objeto, gly: 'plus-circle'} %>
+  </div>
+</div>

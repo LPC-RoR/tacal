@@ -1,0 +1,10 @@
+<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Medicamento', v: true } %>
+<%= render partial: '0p/form_fields/text', locals: { form: form, token: :medicamento } %>
+
+<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Dosis', v: true } %>
+<%= render partial: '0p/form_fields/text', locals: { form: form, token: :dosis } %>
+
+<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :autonomia_administracion, label: 'Autonomía de Administración' } %></br>
+<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :adherencia_tratamiento, label: 'Adherencia al Tratamiento' } %></br>
+
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :pcd_id, label: nil, v: true } %>

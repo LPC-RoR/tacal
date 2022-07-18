@@ -84,6 +84,8 @@ module CapitanRecursosHelper
 	def app_new_button_conditions(controller)
 		if ['contacto_personas', 'contacto_empresas'].include?(controller)
 			@e == 'ingreso'
+		elsif ['medicamentos', 'diagnosticos', 'antecedente_formaciones'].include?(controller)
+			false
 		else
 			true
 		end

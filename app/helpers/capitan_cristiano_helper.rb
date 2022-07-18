@@ -42,8 +42,8 @@ module CapitanCristianoHelper
 	end
 
 	def cristiano_app(text, origen, destino)
-		if ['ContactoPersona', 'contacto_personas'].include?(text)
-			'Contacto persona'
+		if ['Diagnostico', 'diagnosticos'].include?(text)
+			'Diagnóstico'
 		elsif ['ContactoEmpresa', 'contacto_empresas'].include?(text)
 			'Contacto empresa'
 		else

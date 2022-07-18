@@ -1,0 +1,142 @@
+<small><small>Fundación TACAL se compromete a guardar la confidencialidad respecto de la propiedad intelectual de datos personales del participante. El contenido de este documento debe ser completado por la información entregada poe el/la postulante, con el propósito de realizar una capacitación y/o intermediación laboral, siendo responsabilidad del profesional revisar que el formulario está completo</small></small>
+
+<hr>
+<h5>General</h5>
+
+<div class='row'>
+	<div class='col-md-4'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Evaluador', v: false } %>
+		<b><%= @objeto.evaluador %></b>
+	</div>
+	<div class='col-md-4'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Modalidad Entrevista', v: true } %>
+		<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :modalidad_entrevista, radio_list: ['Presencial', 'Online'], label: 'Región' } %>
+	</div>
+	<div class='col-md-4'>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Fecha Entrevista', v: true } %>
+		<%= render partial: '0p/form_fields/date', locals: { form: form, token: :fecha_entrevista } %>
+	</div>
+</div>
+
+<hr>
+
+<div class='row'>
+	<div class='col-md-9'>
+		<div class='row'>
+			<div class='col-md-4'>
+				<h5>Observación preliminar del postulante</h5>
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Puntualidad en la entrevista', v: true } %>
+				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :puntualidad, radio_list: ['No', 'Sí'] } %>
+
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Acompañante', v: true } %>
+				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :solo_acompanado, radio_list: ['Solo', 'Acompañado'] } %>
+
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Comunicación Autónoma', v: true } %>
+				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :comunicacion_autonoma, radio_list: ['No', 'Sí']} %>
+
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Vive con:', v: true } %>
+				<%= render partial: '0p/form_fields/select', locals: { form: form, token: :con_quien_vive, sel_list: ['Solo', 'Pareja', 'Padres', 'Otro'], label: 'Vive con' } %>
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Especificar otro', v: true } %>
+				<%= render partial: '0p/form_fields/text', locals: { form: form, token: :vive_otro } %>
+			</div>
+			<div class='col-md-4'>
+				<small><b>Actitud frente a la entrevista</b></small></br>
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Atento', v: false } %>
+				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :atento, radio_list: ['No', 'Sí'] } %>
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Interesado', v: false } %>
+				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :interesado, radio_list: ['No', 'Sí'] } %>
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Motivado', v: false } %>
+				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :motivado, radio_list: ['No', 'Sí'] } %>
+
+				<small><b>Presentación personal</b></small></br>
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Aseado', v: false } %>
+				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :aseado, radio_list: ['No', 'Sí'] } %>
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Vestimenta acorde', v: false } %>
+				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :vestimenta_acorde, radio_list: ['No', 'Sí'] } %>
+			</div>
+			<div class='col-md-4'>
+				<small><b>Comunicación</b></br>
+				<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :oral, label: 'Oral' } %></br>
+				<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :gestual, label: 'Gestual' } %></br>
+				<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :escrita, label: 'Escrita' } %></br>
+				</small>
+
+				<small><b>Actividades en comunidad</b></br>
+				<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :municipalidad, label: 'Municipalidad' } %></br>
+				<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :agrupacion, label: 'Agrupación' } %></br>
+				<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :familia, label: 'familia' } %></br>
+				</small>
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Especificar otros', v: true } %>
+				<%= render partial: '0p/form_fields/text', locals: { form: form, token: :comunidades_otro } %>
+			</div>
+		</div>
+
+		<hr>
+		<div class='row'>
+			<div class='col-md-6'>
+				<h5>Ocupaciones</h5>
+				<small>¿En Cuál de las siguientes actividades necesita apoyo para realizarla?</small></br>
+
+				<small><b>AVD/AVDI</b></br>
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Vestuario', v: true } %>
+				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :vestuario, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Aseo Personal', v: true } %>
+				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :aseo_personal, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Alimentación', v: true } %>
+				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :alimentacion, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Control de Esfinter', v: true } %>
+				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :control_esfinter, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Manejo de Dinero', v: true } %>
+				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :manejo_dinero, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'movilidad en la comunidad', v: true } %>
+				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :movilidad, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Uso del Celular', v: true } %>
+				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :uso_celular, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
+				</small>
+			</div>
+			<div class='col-md-6'>
+				<b>Uso de TICs</b></br>
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Manejo Computacional', v: true } %>
+				<%= render partial: '0p/form_fields/select', locals: { form: form, token: :maneco_computacional, sel_list: ['Nulo', 'Básico', 'Intermedio', 'Avanzado'], label: 'Manejo Computacional' } %>
+
+				</br>
+				<h5>Antecedentes Personas Migrantes</h5>
+
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Documentos Legales Vigentes', v: true } %>
+				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :documentos_legales_vigentes, radio_list: ['No', 'Sí'] } %>
+
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Visa de Trabajo Vigente', v: true } %>
+				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :documentos_legales_vigentes, radio_list: ['No', 'Sí'] } %>
+			</div>
+		</div>
+	</div>
+	<div class='col-md-3'>
+		<h5>Antecedentes penales</h5>
+		<small>¿Usted ha tenido o mantiene causas penales activas?</small></br>
+
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Antecedentes Penales', v: true } %>
+		<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :antecedentes_penales, radio_list: ['No', 'Sí', 'Pendiente']} %>
+		<small>Agregar al repositorio Certificado de Antecedentes</small>
+
+		<h5>Antecedentes de Consumo</h5>
+		<small>¿Cuéntame si consumes o has consumido alguna de las siguientes sustancias por un período de tiempo?</small></br>
+
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Antecedentes de Consumo', v: true } %>
+		<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :antecedentes_consumo, radio_list: ['No', 'Alcohol', 'Marihuana', 'Otro']} %>
+
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Otros Consumos', v: true } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :consumo_otros } %>
+
+		<h5>Ayudas Técnicas</h5>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Ayudas Técnicas', v: true } %>
+		<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :ayudas_tecnicas, radio_list: ['No', 'Sí']} %>
+
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Especificar cuales', v: true } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :especificar_otra } %>
+
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Atención', v: true } %>
+		<%= render partial: '0p/form_fields/select', locals: { form: form, token: :atencion, sel_list: ['Sin atención', 'Sin atención | Necesaria', 'Atención | Privado', 'Atención | Público - Consultorio', 'Atención | Público - Hospital'], label: 'Atención'} %>
+	</div>
+</div>
+
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :estado, label: nil, v: true } %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  periodo: MyString
+  titulo_grado: MyString
+  institucion: MyString
+  pcd_id: 1
+
+two:
+  periodo: MyString
+  titulo_grado: MyString
+  institucion: MyString
+  pcd_id: 1

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dispositivo_atencion: MyString
+  lugar_atencion: MyString
+  profesional: MyString
+  frecuencia_control: MyString
+  tratamiento: false
+  pcd_id: 1
+
+two:
+  dispositivo_atencion: MyString
+  lugar_atencion: MyString
+  profesional: MyString
+  frecuencia_control: MyString
+  tratamiento: false
+  pcd_id: 1

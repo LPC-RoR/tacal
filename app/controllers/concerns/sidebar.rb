@@ -3,14 +3,6 @@ module Sidebar
 
 	# SIDEBAR
 
-	def get_lista(nombre)
-		lista = SbLista.find_by(lista: nombre)
-	end
-
-	def get_elementos(lista)
-		lista.blank? ? nil : lista.sb_elementos.order(:orden)
-	end
-
 	def first_elemento(elementos)
 		unless elementos.blank?
 			lista_item = elementos.where(tipo: 'item')
@@ -18,23 +10,6 @@ module Sidebar
 		else
 			nil
 		end
-	end
-
-	def carga_sidebar_base(nombre, param_id)
-	    @sb_name = nombre
-
-	    lista = get_lista(nombre)
-	    @tipo_lista = (lista.lista == 'Ayuda' ? 'ayuda' : 'item')
-
-    	@sb_link = (lista.blank? ? nil : lista.link)
-	    @sb_elementos = get_elementos(lista)
-
-	    unless ['new', 'edit', 'create', 'show'].include?(action_name)
-	    	@id = get_id(@sb_elementos, param_id)
-		    @elemento = SbElemento.find(@id)
-
-	    	@controlador = get_controller(@sb_elementos, @id)
-	    end
 	end
 
 	def get_id(elementos, param_id)
@@ -53,9 +28,33 @@ module Sidebar
 		end
 	end
 
+	def carga_lista(nombre, param_id)
+	    @sb_name = nombre
+
+	    # Obtiene el registro de la Lista: Nombre del ïtem de menú
+		lista = SbLista.find_by(lista: nombre)
+
+	    @tipo_lista = (lista.lista == 'Ayuda' ? 'ayuda' : 'item')
+
+    	@sb_link = (lista.blank? ? nil : lista.link)
+
+    	# Obtiene los ELEMENTOS de la LISTA
+		@sb_elementos = (lista.blank? ? nil : lista.sb_elementos.order(:orden))
+
+		# Sólo si no es una acción CRUD
+		# - Se carga el id del elemento
+		# - Se carga el elemento
+	    unless ['new', 'edit', 'create', 'show'].include?(action_name)
+	    	@id = get_id(@sb_elementos, param_id)
+		    @elemento = SbElemento.find(@id)
+
+	    	@controlador = get_controller(@sb_elementos, @id)
+	    end
+	end
+
 	def carga_sidebar(nombre, param_id)
 
-		carga_sidebar_base(nombre, param_id)
+		carga_lista(nombre, param_id)
 
 	    unless ['new', 'edit', 'create', 'show'].include?(action_name)
 

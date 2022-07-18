@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Periodo:</strong>
+  <%= @antecedente_formacion.periodo %>
+</p>
+
+<p>
+  <strong>Titulo grado:</strong>
+  <%= @antecedente_formacion.titulo_grado %>
+</p>
+
+<p>
+  <strong>Institucion:</strong>
+  <%= @antecedente_formacion.institucion %>
+</p>
+
+<p>
+  <strong>Pcd:</strong>
+  <%= @antecedente_formacion.pcd_id %>
+</p>
+
+<%= link_to 'Edit', edit_antecedente_formacion_path(@antecedente_formacion) %> |
+<%= link_to 'Back', antecedente_formaciones_path %>
