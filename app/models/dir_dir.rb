@@ -1,0 +1,2 @@
+class DirDir < ApplicationRecord
+end

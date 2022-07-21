@@ -21,6 +21,17 @@ module ApplicationHelper
 		['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark', 'muted', 'white']
 	end
 
+	def table_types_base
+		{
+			simple: '',
+			striped: 'table-striped',
+			bordered: 'table-bordered',
+			borderless: 'table-borderless',
+			hover: 'table-hover',
+			small: 'table-small'
+		}
+	end
+
 	def image_sizes
 		['entire', 'half', 'quarter', 'thumb']
 	end
@@ -50,7 +61,7 @@ module ApplicationHelper
 
 	def controllers_scope
 		{
-			aplicacion: ['app_administradores', 'app_nominas', 'app_perfiles', 'app_observaciones', 'app_mejoras', 'app_imagenes', 'app_contactos', 'archivos', 'comentarios', 'directorios', 'documentos', 'imagenes', 'licencias', 'mejoras', 'observaciones', 'recursos', 'subs'],
+			aplicacion: ['app_administradores', 'app_nominas', 'app_perfiles', 'app_observaciones', 'app_mejoras', 'app_imagenes', 'app_contactos', 'archivos', 'comentarios', 'imagenes', 'licencias', 'mejoras', 'observaciones', 'recursos', 'subs', 'app_repos', 'app_directorios', 'app_documentos', 'app_archivos'],
 			home:       ['h_temas', 'h_links', 'h_imagenes'],
 			help:       ['conversaciones', 'mensajes', 'hlp_pasos', 'temaf_ayudas', 'hlp_tutoriales'],
 			sidebar:    ['sb_listas', 'sb_elementos'],

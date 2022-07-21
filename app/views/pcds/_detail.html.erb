@@ -69,17 +69,27 @@
 </div>
 
 <div class='row'>
-	<div class='col-md-4'>
+	<div class='col-md-4
+	'>
 		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Fecha de Nacimiento', v: true } %>
 		<%= render partial: '0p/form_fields/date', locals: { form: form, token: :fecha_nacimiento } %>
 	</div>
-	<div class='col-md-4'>
+	<div class='col-md-2'>
 		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Género', v: true } %>
 		<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :genero, radio_list: ['Femenino', 'Masculino'] } %>
 </div>
-	<div class='col-md-4'>
+	<div class='col-md-2'>
 		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Nacionalidad', v: true } %>
 		<%= render partial: '0p/form_fields/select', locals: { form: form, token: :nacionalidad, sel_list: Nacionalidad.all.map {|nac| nac.nacionalidad}, label: 'Nacionalidad' } %>
+	</div>
+	<div class='col-md-4'>
+		<h5>Antecedentes Personas Migrantes</h5>
+
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Documentos Legales Vigentes', v: true } %>
+		<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :documentos_legales_vigentes, radio_list: ['No', 'Sí'] } %>
+
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Visa de Trabajo Vigente', v: true } %>
+		<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :visa_trabajo_vigente, radio_list: ['No', 'Sí'] } %>
 	</div>
 </div>
 
@@ -89,14 +99,18 @@
 	<div class='col-md-4'>
 		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Nivel Educacional', v: true } %>
 		<%= render partial: '0p/form_fields/select', locals: { form: form, token: :nivel_educacional, sel_list: NivelEducacional.all.map {|ned| ned.nivel_educacional}, label: 'Nivel Educacional' } %>
-	</div>
-	<div class='col-md-4'>
+
 		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Completa/Incompleta', v: true } %>
 		<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :educacion_completa, radio_list: ['Completa', 'Incompleta'] } %>
 	</div>
 	<div class='col-md-4'>
 		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Profesión/Oficio', v: true } %>
 		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :profesion_oficio } %>
+	</div>
+	<div class='col-md-4'>
+		<b>Uso de TICs</b></br>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Manejo Computacional', v: true } %>
+		<%= render partial: '0p/form_fields/select', locals: { form: form, token: :manejo_computacional, sel_list: ['Nulo', 'Básico', 'Intermedio', 'Avanzado'], label: 'Manejo Computacional' } %>
 	</div>
 </div>
 
@@ -138,50 +152,85 @@
 
 		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Medio de Contacto', v: true } %>
 		<%= render partial: '0p/form_fields/select', locals: { form: form, token: :medio_contacto, sel_list: MedioContacto.all.map {|mc| mc.medio_contacto}, label: 'Medio de Contacto' } %>
+
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Vive con:', v: true } %>
+		<%= render partial: '0p/form_fields/select', locals: { form: form, token: :vive_con, sel_list: ['Solo', 'Pareja', 'Padres', 'Otro'], label: 'Vive con' } %>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Especificar otro', v: true } %>
+		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :vive_con_otro } %>
+
 	</div>
 </div>
 
 <hr>
-<h5>Antecedentes Laborales</h5>
 
 <div class='row'>
 	<div class='col-md-4'>
-		<%= render partial: '0p/form_fields/select', locals: { form: form, token: :experiencia_laboral, sel_list: Pcd::EXPERIENCIAS_LABORALES, label: 'Experiencia Laboral' } %>
+		<h5>Ocupaciones</h5>
+		<small>¿En Cuál de las siguientes actividades necesita apoyo para realizarla?</small></br>
 	</div>
-	<div class='col-md-4'>
-		<h6>Operario</h6>
-		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :ope_linea_productiva, label: 'Línea Productiva' } %>
-		</br>
-		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :ope_bodega, label: 'Bodega' } %>
-		</br>
-		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :ope_aseo, label: 'Aseo' } %>
-		</br>
-		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :ope_logistica, label: 'Logística' } %>
-		</br>
-		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :ope_pioneta, label: 'Pioneta' } %>
-		</br>
-		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :ope_grua_horquilla, label: 'Grua Horquilla' } %>
-		</br>
-		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Otro Operario', v: false } %>
-		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :otro_operario } %>
-
+	<div class='col-md-8'>
+		<h5>Antecedentes Laborales</h5>
+		<%= render partial: '0p/form_fields/select', locals: { form: form, token: :experiencia_laboral, sel_list: Pcd::EXPERIENCIAS_LABORALES, label: 'Experiencia Laboral' } %></br>
 	</div>
+</div>
+
+<div class='row'>
 	<div class='col-md-4'>
-		<h6>Administrativo</h6>
-		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :adm_rrhh, label: 'RRHH' } %>
-		</br>
-		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :adm_contabilidad, label: 'Contabilidad' } %>
-		</br>
-		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :adm_ventas, label: 'Ventas' } %>
-		</br>
-		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :adm_finanzas, label: 'Finanzas' } %>
-		</br>
-		<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :adm_general, label: 'General' } %>
-		</br>
+		<small><b>AVD/AVDI</b></br>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Vestuario', v: true } %>
+		<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :vestuario, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Aseo Personal', v: true } %>
+		<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :aseo_personal, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Alimentación', v: true } %>
+		<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :alimentacion, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Control de Esfinter', v: true } %>
+		<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :control_esfinter, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Manejo de Dinero', v: true } %>
+		<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :manejo_dinero, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'movilidad en la comunidad', v: true } %>
+		<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :movilidad, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
+		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Uso del Celular', v: true } %>
+		<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :uso_celular, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
+		</small>
+	</div>
+	<div class='col-md-8'>
+		<div class='row'>
+			<div class='col-md-6'>
+				<h6>Operario</h6>
+				<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :ope_linea_productiva, label: 'Línea Productiva' } %>
+				</br>
+				<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :ope_bodega, label: 'Bodega' } %>
+				</br>
+				<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :ope_aseo, label: 'Aseo' } %>
+				</br>
+				<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :ope_logistica, label: 'Logística' } %>
+				</br>
+				<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :ope_pioneta, label: 'Pioneta' } %>
+				</br>
+				<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :ope_grua_horquilla, label: 'Grua Horquilla' } %>
+				</br>
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Otro Operario', v: false } %>
+				<%= render partial: '0p/form_fields/text', locals: { form: form, token: :otro_operario } %>
 
-		<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Otro Administrativo', v: false } %>
-		<%= render partial: '0p/form_fields/text', locals: { form: form, token: :otro_administrativo } %>
+			</div>
+			<div class='col-md-6'>
+				<h6>Administrativo</h6>
+				<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :adm_rrhh, label: 'RRHH' } %>
+				</br>
+				<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :adm_contabilidad, label: 'Contabilidad' } %>
+				</br>
+				<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :adm_ventas, label: 'Ventas' } %>
+				</br>
+				<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :adm_finanzas, label: 'Finanzas' } %>
+				</br>
+				<%= render partial: '0p/form_fields/check_box', locals: { form: form, token: :adm_general, label: 'General' } %>
+				</br>
 
+				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Otro Administrativo', v: false } %>
+				<%= render partial: '0p/form_fields/text', locals: { form: form, token: :otro_administrativo } %>
+
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -218,7 +267,7 @@
 </div>
 
 <hr>
-<h5>Resultado</h5>
+
 <div class='row'>
 	<div class='col-md-6'>
 		<h6>Resultado</h6>

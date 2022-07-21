@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dir Dires</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parent</th>
+      <th>Child</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dir_dires.each do |dir_dir| %>
+      <tr>
+        <td><%= dir_dir.parent_id %></td>
+        <td><%= dir_dir.child_id %></td>
+        <td><%= link_to 'Show', dir_dir %></td>
+        <td><%= link_to 'Edit', edit_dir_dir_path(dir_dir) %></td>
+        <td><%= link_to 'Destroy', dir_dir, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dir Dir', new_dir_dir_path %>

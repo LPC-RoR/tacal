@@ -30,13 +30,13 @@
     <h6><%= @objeto.telefono_casa %></h6>
     <small><b>Correo Electrónico</b></small>
     <h6><%= @objeto.correo_electronico %></h6>
-    <small><b>Facebook</b></small></br>
+    <i class="bi bi-facebook"></i>
     <% if @objeto.facebook.blank? %>
       <h6>Sin Información</h6></br>
     <% else %>
       <%= link_to @objeto.facebook, @objeto.facebook %></br>
     <% end %>
-    <small><b>Instagram</b></small></br>
+    <i class="bi bi-instagram"></i>
     <% if @objeto.instagram.blank? %>
       <h6>Sin Información</h6></br>
     <% else %>
@@ -64,15 +64,30 @@
 </div>
 
 <hr>
-<h5>Ficha</h5>
 
-<% if @objeto.ficha.present? %>
-  <i class="bi bi-clipboard"></i>
-  <%= link_to 'ver ficha', @objeto.ficha %>
-<% else %>
-  <i class="bi bi-clipboard-plus"></i>
-  <%= link_to 'crear ficha', "/fichas/new?pcd_id=#{@objeto.id}" %>
-<% end %>
+<div class='row'>
+  <div class='col-md-6'>
+    <h5>Ficha</h5>
+
+    <% if @objeto.ficha.present? %>
+      <i class="bi bi-clipboard"></i>
+      <%= link_to 'ver ficha', @objeto.ficha %>
+    <% else %>
+      <i class="bi bi-clipboard-plus"></i>
+      <%= link_to 'crear ficha', "/fichas/new?pcd_id=#{@objeto.id}" %>
+    <% end %>
+  </div>
+  <div class='col-md-6'>
+
+
+    <h5><%= render partial: '0p/general/icon_text', locals: {gly: 'archive', text: 'Documentos', clr: app_color[:app]} %></h5>
+
+    <%= render partial: 'aplicacion/app_directorios/partials/directorio', locals: {objeto: @objeto.repo} %>
+
+
+
+  </div>
+</div>
 
 <hr>
 

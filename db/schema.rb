@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_18_025632) do
+ActiveRecord::Schema.define(version: 2022_07_21_151207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(version: 2022_07_18_025632) do
     t.index ["usuario_id"], name: "index_app_administradores_on_usuario_id"
   end
 
+  create_table "app_archivos", force: :cascade do |t|
+    t.string "archivo"
+    t.string "owner_class"
+    t.integer "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_class"], name: "index_app_archivos_on_owner_class"
+    t.index ["owner_id"], name: "index_app_archivos_on_owner_id"
+  end
+
   create_table "app_contactos", force: :cascade do |t|
     t.string "nombre"
     t.string "telefono"
@@ -45,6 +55,37 @@ ActiveRecord::Schema.define(version: 2022_07_18_025632) do
     t.datetime "updated_at", null: false
     t.index ["owner_class"], name: "index_app_contactos_on_owner_class"
     t.index ["owner_id"], name: "index_app_contactos_on_owner_id"
+  end
+
+  create_table "app_dir_dires", force: :cascade do |t|
+    t.integer "parent_id"
+    t.integer "child_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["child_id"], name: "index_app_dir_dires_on_child_id"
+    t.index ["parent_id"], name: "index_app_dir_dires_on_parent_id"
+  end
+
+  create_table "app_directorios", force: :cascade do |t|
+    t.string "directorio"
+    t.string "owner_class"
+    t.integer "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["directorio"], name: "index_app_directorios_on_directorio"
+    t.index ["owner_class"], name: "index_app_directorios_on_owner_class"
+    t.index ["owner_id"], name: "index_app_directorios_on_owner_id"
+  end
+
+  create_table "app_documentos", force: :cascade do |t|
+    t.string "documento"
+    t.boolean "publico"
+    t.string "owner_class"
+    t.integer "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_class"], name: "index_app_documentos_on_owner_class"
+    t.index ["owner_id"], name: "index_app_documentos_on_owner_id"
   end
 
   create_table "app_imagenes", force: :cascade do |t|
@@ -104,6 +145,17 @@ ActiveRecord::Schema.define(version: 2022_07_18_025632) do
     t.index ["app_administrador_id"], name: "index_app_perfiles_on_app_administrador_id"
     t.index ["email"], name: "index_app_perfiles_on_email"
     t.index ["usuario_id"], name: "index_app_perfiles_on_usuario_id"
+  end
+
+  create_table "app_repos", force: :cascade do |t|
+    t.string "repositorio"
+    t.string "owner_class"
+    t.integer "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_class"], name: "index_app_repos_on_owner_class"
+    t.index ["owner_id"], name: "index_app_repos_on_owner_id"
+    t.index ["repositorio"], name: "index_app_repos_on_repositorio"
   end
 
   create_table "b_clave_facetas", force: :cascade do |t|
@@ -213,6 +265,15 @@ ActiveRecord::Schema.define(version: 2022_07_18_025632) do
     t.datetime "updated_at", null: false
     t.index ["diagnostico"], name: "index_diagnosticos_on_diagnostico"
     t.index ["pcd_id"], name: "index_diagnosticos_on_pcd_id"
+  end
+
+  create_table "dir_dires", force: :cascade do |t|
+    t.integer "parent_id"
+    t.integer "child_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["child_id"], name: "index_dir_dires_on_child_id"
+    t.index ["parent_id"], name: "index_dir_dires_on_parent_id"
   end
 
   create_table "dispositivo_atenciones", force: :cascade do |t|
@@ -428,6 +489,18 @@ ActiveRecord::Schema.define(version: 2022_07_18_025632) do
     t.string "email_referencia"
     t.string "resultado"
     t.string "destino"
+    t.string "vestuario"
+    t.string "aseo_personal"
+    t.string "alimentacion"
+    t.string "control_esfinter"
+    t.string "manejo_dinero"
+    t.string "movilidad"
+    t.string "uso_celular"
+    t.string "vive_con"
+    t.string "vive_con_otro"
+    t.string "manejo_computacional"
+    t.string "documentos_legales_vigentes"
+    t.string "visa_trabajo_vigente"
     t.index ["estado"], name: "index_pcds_on_estado"
     t.index ["resultado"], name: "index_pcds_on_resultado"
     t.index ["rut"], name: "index_pcds_on_rut"

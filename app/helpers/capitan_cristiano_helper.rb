@@ -12,6 +12,12 @@ module CapitanCristianoHelper
 			'Observación'
 		elsif ['AppMejora', 'app_mejoras'].include?(text)
 			'Mejora'
+		elsif ['AppDirectorio', 'app_directorios'].include?(text)
+			'Directorio'
+		elsif ['AppDocumento', 'app_documentos'].include?(text)
+			'Documento'
+		elsif ['AppArchivo', 'app_archivos'].include?(text)
+			'Archivo'
 		elsif ['AppImagen', 'app_imagenes'].include?(text)
 			'Imagen'
 		elsif ['AppContacto', 'app_contactos'].include?(text)

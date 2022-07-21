@@ -8,7 +8,12 @@ class PcdsController < ApplicationController
 
   # GET /pcds/1 or /pcds/1.json
   def show
+    AppRepo.create(repositorio: @objeto.rut, owner_class: 'Pcd', owner_id: @objeto.id) if @objeto.repo.blank?
+
     @coleccion = {}
+    @coleccion['app_directorios'] = @objeto.repo.directorios
+    @coleccion['app_documentos'] = @objeto.repo.documentos
+
     @coleccion['diagnosticos'] = @objeto.diagnosticos
     @coleccion['medicamentos'] = @objeto.medicamentos
     @coleccion['antecedente_formaciones'] = @objeto.antecedente_formaciones
@@ -75,6 +80,6 @@ class PcdsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pcd_params
-      params.require(:pcd).permit(:rut, :apellido_paterno, :apellido_materno, :nombres, :fecha_nacimiento, :genero, :nacionalidad, :nivel_educacional, :educacion_completa, :profesion_oficio, :direccion, :comuna, :ciudad, :region, :telefono_personal, :telefono_casa, :correo_electronico, :acreditacion_discapacidad, :estado_civil, :numero_hijos, :responsabilidad_parental, :situacion_social, :interdicto, :etnia, :cuenta_rut, :condicionado, :conexion_internet, :proveedor_internet, :medio_contacto, :estado, :facebook, :instagram, :fisica, :sensorial_auditiva, :sensorial_visual, :psiquica, :intelectual, :experiencia_laboral, :ope_linea_productiva, :ope_bodega, :ope_aseo, :ope_logistica, :ope_pioneta, :ope_grua_horquilla, :otro_operario, :adm_rrhh, :adm_contabilidad, :adm_ventas, :adm_finanzas, :adm_general, :otro_administrativo, :interes_laboral_1, :interes_laboral_2, :interes_laboral_3, :nombre_referenciia, :empresa_referenciaa, :telefono_referencia, :email_referencia, :resultado, :destino)
+x      params.require(:pcd).permit(:rut, :apellido_paterno, :apellido_materno, :nombres, :fecha_nacimiento, :genero, :nacionalidad, :nivel_educacional, :educacion_completa, :profesion_oficio, :direccion, :comuna, :ciudad, :region, :telefono_personal, :telefono_casa, :correo_electronico, :acreditacion_discapacidad, :estado_civil, :numero_hijos, :responsabilidad_parental, :situacion_social, :interdicto, :etnia, :cuenta_rut, :condicionado, :conexion_internet, :proveedor_internet, :medio_contacto, :estado, :facebook, :instagram, :fisica, :sensorial_auditiva, :sensorial_visual, :psiquica, :intelectual, :experiencia_laboral, :ope_linea_productiva, :ope_bodega, :ope_aseo, :ope_logistica, :ope_pioneta, :ope_grua_horquilla, :otro_operario, :adm_rrhh, :adm_contabilidad, :adm_ventas, :adm_finanzas, :adm_general, :otro_administrativo, :interes_laboral_1, :interes_laboral_2, :interes_laboral_3, :nombre_referenciia, :empresa_referenciaa, :telefono_referencia, :email_referencia, :resultado, :destino, :vestuario, :aseo_personal, :alimentacion, :control_esfinter, :manejo_dinero, :movilidad, :uso_celular, :vive_con, :vive_con_otro, :manejo_computacional, :documentos_legales_vigentes, :visa_trabajo_vigente)
     end
 end

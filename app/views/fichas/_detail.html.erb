@@ -34,10 +34,6 @@
 				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Comunicación Autónoma', v: true } %>
 				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :comunicacion_autonoma, radio_list: ['No', 'Sí']} %>
 
-				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Vive con:', v: true } %>
-				<%= render partial: '0p/form_fields/select', locals: { form: form, token: :con_quien_vive, sel_list: ['Solo', 'Pareja', 'Padres', 'Otro'], label: 'Vive con' } %>
-				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Especificar otro', v: true } %>
-				<%= render partial: '0p/form_fields/text', locals: { form: form, token: :vive_otro } %>
 			</div>
 			<div class='col-md-4'>
 				<small><b>Actitud frente a la entrevista</b></small></br>
@@ -72,43 +68,6 @@
 		</div>
 
 		<hr>
-		<div class='row'>
-			<div class='col-md-6'>
-				<h5>Ocupaciones</h5>
-				<small>¿En Cuál de las siguientes actividades necesita apoyo para realizarla?</small></br>
-
-				<small><b>AVD/AVDI</b></br>
-				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Vestuario', v: true } %>
-				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :vestuario, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
-				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Aseo Personal', v: true } %>
-				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :aseo_personal, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
-				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Alimentación', v: true } %>
-				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :alimentacion, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
-				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Control de Esfinter', v: true } %>
-				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :control_esfinter, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
-				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Manejo de Dinero', v: true } %>
-				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :manejo_dinero, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
-				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'movilidad en la comunidad', v: true } %>
-				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :movilidad, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
-				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Uso del Celular', v: true } %>
-				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :uso_celular, radio_list: ['Independiente', 'Semi Independiente', 'Dependiente'] } %>
-				</small>
-			</div>
-			<div class='col-md-6'>
-				<b>Uso de TICs</b></br>
-				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Manejo Computacional', v: true } %>
-				<%= render partial: '0p/form_fields/select', locals: { form: form, token: :maneco_computacional, sel_list: ['Nulo', 'Básico', 'Intermedio', 'Avanzado'], label: 'Manejo Computacional' } %>
-
-				</br>
-				<h5>Antecedentes Personas Migrantes</h5>
-
-				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Documentos Legales Vigentes', v: true } %>
-				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :documentos_legales_vigentes, radio_list: ['No', 'Sí'] } %>
-
-				<%= render partial: '0p/form_fields/label', locals: { form: form, label: 'Visa de Trabajo Vigente', v: true } %>
-				<%= render partial: '0p/form_fields/radio', locals: { form: form, token: :documentos_legales_vigentes, radio_list: ['No', 'Sí'] } %>
-			</div>
-		</div>
 	</div>
 	<div class='col-md-3'>
 		<h5>Antecedentes penales</h5>

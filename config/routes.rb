@@ -43,6 +43,18 @@ Rails.application.routes.draw do
 
     resources :app_imagenes
     resources :app_contactos
+
+    resources :app_repos do
+      match :publico, via: :get, on: :collection
+      match :perfil, via: :get, on: :collection
+    end
+
+    resources :app_directorios do
+      match :nuevo, via: :post, on: :collection
+    end
+    resources :app_dir_dires
+    resources :app_documentos
+    resources :app_archivos
   end
 
   scope module: 'home' do

@@ -31,4 +31,7 @@ class Pcd < ApplicationRecord
 		"#{self.nivel_educacional} #{self.educacion_completa} #{self.profesion_oficio}"
 	end
 
+	def repo
+    	AppRepo.where(owner_class: 'Pcd').find_by(owner_id: self.id)
+	end
 end
